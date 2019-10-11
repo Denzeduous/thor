@@ -3,13 +3,13 @@ package LinkedList;
 import "core:fmt"
 
 Node :: struct(T: typeid) {
-    value: T,
-    next: ^Node,
+    value: ^T,
+    next: ^Node(T),
 }
 
-LinkedList :: struct {
-    first: ^Node,
-    last: ^Node,
+LinkedList :: struct(T: typeid) {
+    first: ^Node(T),
+    last: ^Node(T),
     length: int,
 }
 
@@ -19,9 +19,10 @@ LinkedListError :: enum {
     EMPTY_LIST,
 }
 
-insert :: proc(list: ^LinkedList, value: $T) {
-    list := list;
-    newnode: ^Node = &Node{value=value};
+insert :: proc(list: ^LinkedList($T), value: ^$K) {
+    list, value := list, value;
+    newnode: ^Node(T) = new(Node(T));
+    newnode.value = value;
 
     if (list.first == nil) {
         list.first = newnode;
@@ -32,10 +33,10 @@ insert :: proc(list: ^LinkedList, value: $T) {
     list.last.next = newnode;
 }
 
-insertAt :: proc (list: ^LinkedList, value: $T, index: int) -> LinkedListError {
+insertAt :: proc (list: ^LinkedList($T), value: $K, index: int) -> LinkedListError {
     list := list;
-    previous: ^Node = nil;
-    node: ^Node = list.first;
+    previous: ^Node(T) = nil;
+    node: ^Node(T) = list.first;
     newnode := Node{value=value};
 
     if (index == 0) {
@@ -69,10 +70,10 @@ insertAt :: proc (list: ^LinkedList, value: $T, index: int) -> LinkedListError {
     return .NOERR;
 }
 
-removeAt :: proc(list: ^LinkedList, index: int) -> LinkedListError {
+removeAt :: proc(list: ^LinkedList($T), index: int) -> LinkedListError {
     list := list;
-    previous: ^Node = nil;
-    node: ^Node = list.first;
+    previous: ^Node(T) = nil;
+    node: ^Node(T) = list.first;
 
     for i := 0; i < index; i += 1 {
         if (node == nil) {
@@ -88,9 +89,9 @@ removeAt :: proc(list: ^LinkedList, index: int) -> LinkedListError {
     return .NOERR;
 }
 
-get :: proc(list: ^LinkedList, index: int) -> (^Node, LinkedListError) {
+get :: proc(list: ^LinkedList($T), index: int) -> (^Node($K), LinkedListError) {
     list := list;
-    node: ^Node = list.first;
+    node: ^Node(T) = list.first;
 
     for i := 0; i < index; i += 1 {
         if (node == nil) {
@@ -104,7 +105,7 @@ get :: proc(list: ^LinkedList, index: int) -> (^Node, LinkedListError) {
 }
 
 main :: proc() {
-    list := new(LinkedList);
+    list := new(LinkedList(int));
 
     value := new(int);
     value^ = 1;
