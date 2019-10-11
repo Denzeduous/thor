@@ -2,8 +2,8 @@ package LinkedList;
 
 import "core:fmt"
 
-Node :: struct {
-    value: rawptr,
+Node :: struct(T: typeid) {
+    value: T,
     next: ^Node,
 }
 
@@ -19,111 +19,111 @@ LinkedListError :: enum {
     EMPTY_LIST,
 }
 
-NodeErrorPackage :: union {
-    Node,
-    LinkedListError,
-}
-
-insert :: proc(list: LinkedList, value: rawptr) {
-    nextnode: Node = Node{value=value};
+insert :: proc(list: ^LinkedList, value: $T) {
+    list := list;
+    newnode: ^Node = &Node{value=value};
 
     if (list.first == nil) {
-        list.first = nextnode;
-        list.last = nextnode;
+        list.first = newnode;
+        list.last = newnode;
         return;
     }
 
-    list.last.next = &nextnode;
+    list.last.next = newnode;
 }
 
-insertAt :: proc (list: LinkedList, value: rawptr, index: int) -> LinkedListError {
-    previous: Node = nil;
-    node: Node = list.first;
+insertAt :: proc (list: ^LinkedList, value: $T, index: int) -> LinkedListError {
+    list := list;
+    previous: ^Node = nil;
+    node: ^Node = list.first;
     newnode := Node{value=value};
 
     if (index == 0) {
         newnode.next = list.start;
         list.start = newnode;
-        return LinkedListError.NOERR;
+        return .NOERR;
     }
 
     else if (index == list.length - 1) {
         list.last.next = newnode;
         list.last = newnode;
-        return LinkedListError.NOERR;
+        return .NOERR;
     }
 
     if (list.start == nil) {
-        return LinkedListError.EMPTY_LIST;
+        return .EMPTY_LIST;
     }
 
     for i = 0; i < index; i += 1 {
         if (node == nil) {
-            return LinkedListError.OUT_OF_BOUNDS;
+            return .OUT_OF_BOUNDS;
         }
 
         previous = node;
         node = node.next;
     }
 
-    previous.next = &newnode;
-    newnode.next = &node;
+    previous.next = newnode;
+    newnode.next = node;
 
-    return LinkedListError.NOERR;
+    return .NOERR;
 }
 
-removeAt :: proc(list: LinkedList, index: int) -> LinkedListError {
-    previous: Node = nil;
-    node: Node = list.first;
+removeAt :: proc(list: ^LinkedList, index: int) -> LinkedListError {
+    list := list;
+    previous: ^Node = nil;
+    node: ^Node = list.first;
 
     for i := 0; i < index; i += 1 {
         if (node == nil) {
-            return LinkedListError.OUT_OF_BOUNDS;
+            return .OUT_OF_BOUNDS;
         }
 
         previous = node;
         node = node.next;
     }
 
-    node.next = &previous.next;
-    previous.next = &node;
+    node.next = previous.next;
+    previous.next = node;
+    return .NOERR;
 }
 
-get :: proc(list: LinkedList, index: int) -> NodeErrorPackage {
-    node: Node = list.first;
+get :: proc(list: ^LinkedList, index: int) -> (^Node, LinkedListError) {
+    list := list;
+    node: ^Node = list.first;
 
-    for i = 0; i < index; i += 1 {
+    for i := 0; i < index; i += 1 {
         if (node == nil) {
-            return LinkedListError.OUT_OF_BOUNDS;
+            return nil, .OUT_OF_BOUNDS;
         }
 
         node = node.next;
     }
 
-    return node;
+    return node, .NOERR;
 }
 
 main :: proc() {
-    list := LinkedList{};
+    list := new(LinkedList);
 
-    value: rawptr = alloc(4);
-    ^value = 1;
+    value := new(int);
+    value^ = 1;
     insert(list, value);
 
-    value = alloc(4);
-    ^value = 2;
+    value = new(int);
+    value^ = 1;
     insert(list, value);
 
-    value = alloc(4);
-    ^value = 3;
+    value = new(int);
+    value^ = 1;
     insert(list, value);
 
-    value = alloc(4);
-    ^value = 4;
+    value = new(int);
+    value^ = 1;
     insert(list, value);
 
-    value = alloc(4);
-    ^value = 5;
+    value = new(int);
+    value^ = 1;
     insert(list, value);
 
     for i := 0; i < 5; i += 1 {
