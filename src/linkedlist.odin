@@ -3,13 +3,16 @@ package LinkedList;
 import "core:fmt"
 
 /*
- * Node class. Contains a pointer to the value and a pointer to the next node.
+ * Node struct. Contains a pointer to the value and a pointer to the next node.
  */
 Node :: struct(T: typeid) {
     value: T,
     next: ^Node(T),
 }
 
+/*
+ * Linked List struct. Of type T and passes it down to the Nodes. Also contains its length.
+ */
 LinkedList :: struct(T: typeid) {
     first: ^Node(T),
     last: ^Node(T),
