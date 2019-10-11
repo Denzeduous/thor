@@ -19,7 +19,7 @@ LinkedListError :: enum {
     EMPTY_LIST,
 }
 
-insert :: proc(list: ^LinkedList($T), value: ^$K) {
+insert :: proc(list: ^LinkedList($T), value: ^T) {
     list, value := list, value;
     newnode: ^Node(T) = new(Node(T));
     newnode.value = value;
