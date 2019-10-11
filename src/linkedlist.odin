@@ -21,16 +21,22 @@ LinkedListError :: enum {
 
 insert :: proc(list: ^LinkedList($T), value: ^T) {
     list, value := list, value;
-    newnode: ^Node(T) = new(Node(T));
-    newnode.value = value;
 
+    node := new(Node(T));
+    node.value = value;
+
+    // Making sure the first value is initialized when it's empty
     if (list.first == nil) {
-        list.first = newnode;
-        list.last = newnode;
-        return;
+        list.first = node;
     }
 
-    list.last.next = newnode;
+    // If the last index isn't nil, make sure to set the last node's next pointer to the new node
+    if (list.last != nil) {
+        list.last.next = node;
+    }
+
+    // Setting the last index to the new node
+    list.last = node;
 }
 
 insertAt :: proc (list: ^LinkedList($T), value: T, index: int) -> LinkedListError {
@@ -40,8 +46,8 @@ insertAt :: proc (list: ^LinkedList($T), value: T, index: int) -> LinkedListErro
     newnode := Node{value=value};
 
     if (index == 0) {
-        newnode.next = list.start;
-        list.start = newnode;
+        newnode.next = list.first;
+        list.first = newnode;
         return .NOERR;
     }
 
@@ -51,7 +57,7 @@ insertAt :: proc (list: ^LinkedList($T), value: T, index: int) -> LinkedListErro
         return .NOERR;
     }
 
-    if (list.start == nil) {
+    if (list.first == nil) {
         return .EMPTY_LIST;
     }
 
@@ -72,36 +78,57 @@ insertAt :: proc (list: ^LinkedList($T), value: T, index: int) -> LinkedListErro
 
 removeAt :: proc(list: ^LinkedList($T), index: int) -> LinkedListError {
     list := list;
+
     previous: ^Node(T) = nil;
     node: ^Node(T) = list.first;
-    fmt.println("Got here");
+
     for i := 0; i < index; i += 1 {
         if (node == nil) {
             return .OUT_OF_BOUNDS;
         }
-        fmt.println("Got here 2");
+
         previous = node;
         node = node.next;
     }
-    fmt.println("Got here 3");
-    previous.next = node.next;
-    fmt.println("Got here 4");
+
+    if (previous == nil) {
+        list.first = node.next;
+    }
+
+    else if (list.last == node) {
+        list.last = previous;
+    }
+
+    else {
+        previous.next = node.next;
+    }
+
     return .NOERR;
 }
 
 get :: proc(list: ^LinkedList($T), index: int) -> (^Node(T), LinkedListError) {
     list := list;
-    node: ^Node(T) = list.first;
 
+    node: ^Node(T);
+
+    // Iterate until we either reach the index we want, or reach the end of the list
     for i := 0; i < index; i += 1 {
         if (node == nil) {
             return nil, .OUT_OF_BOUNDS;
         }
 
-        node = node.next;
+        // You've found the node! Now return it!
+        if (i == index) {
+            return node, .NOERR;
+        }
+
+        // If it hasn't found the note, iterate the variables
+        else {
+            node = node.next;
+        }
     }
 
-    return node, .NOERR;
+    return nil, .EMPTY_LIST;
 }
 
 main :: proc() {
@@ -145,7 +172,7 @@ main :: proc() {
     fmt.print('[');
 
     for i := 0; i < 5; i += 1 {
-        fmt.print(i);
+        fmt.print(get(list, i));
 
         if (i != 4) {
             fmt.print(", ");
