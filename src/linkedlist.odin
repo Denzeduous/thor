@@ -37,6 +37,7 @@ insert :: proc(list: ^LinkedList($T), value: ^T) {
 
     // Setting the last index to the new node
     list.last = node;
+    list.length += 1;
 }
 
 insertAt :: proc (list: ^LinkedList($T), value: T, index: int) -> LinkedListError {
@@ -72,35 +73,49 @@ insertAt :: proc (list: ^LinkedList($T), value: T, index: int) -> LinkedListErro
 
     previous.next = newnode;
     newnode.next = node;
-
+    list.length += 1;
     return .NOERR;
 }
 
 removeAt :: proc(list: ^LinkedList($T), index: int) -> LinkedListError {
     list := list;
 
-    previous: ^Node(T) = nil;
-    node: ^Node(T) = list.first;
+    if (index >= list.length) {
+        return .OUT_OF_BOUNDS;
+    }
 
+    // We need to store the last node we visited for pointer swapping, hence previous
+    node := list.first;
+    previous: ^Node(T);
+
+    // Iterate until we reach the end of the list, making sure the list itself is initialized
     for i := 0; i < index; i += 1 {
         if (node == nil) {
-            return .OUT_OF_BOUNDS;
+            return .EMPTY_LIST;
         }
 
-        previous = node;
-        node = node.next;
-    }
+        // You've reached your destination!
+        if (i == index - 1) {
 
-    if (previous == nil) {
-        list.first = node.next;
-    }
+            // If it's the first node, change the first to the new value
+            if (list.first == node) {
+                list.first = node.next;
+            }
 
-    else if (list.last == node) {
-        list.last = previous;
-    }
+            // If it's the last node, make sure to set the last to the new value
+            if (list.last == node) {
+                list.last = previous;
+            }
 
-    else {
-        previous.next = node.next;
+            // Move the removed node's next pointer to the previous node's next pointer
+            previous.next = node.next;
+        }
+
+        // If the value doesn't match, then iterate the node variables
+        else {
+            previous = node;
+            node = node.next;
+        }
     }
 
     return .NOERR;
@@ -109,10 +124,10 @@ removeAt :: proc(list: ^LinkedList($T), index: int) -> LinkedListError {
 get :: proc(list: ^LinkedList($T), index: int) -> (^Node(T), LinkedListError) {
     list := list;
 
-    node: ^Node(T);
+    node := list.first;
 
     // Iterate until we either reach the index we want, or reach the end of the list
-    for i := 0; i < index; i += 1 {
+    for i := 0; i <= index; i += 1 {
         if (node == nil) {
             return nil, .OUT_OF_BOUNDS;
         }
@@ -144,25 +159,25 @@ main :: proc() {
 
     fmt.print('[');
 
-    for i := 0; i < 5; i += 1 {
+    for i := 1; i <= 5; i += 1 {
         fmt.print(i);
 
-        if (i != 4) {
+        if (i != 5) {
             fmt.print(", ");
         }
     }
 
     fmt.println(']');
 
-    err := removeAt(list, 2);
-    fmt.println(err);
+    removeAt(list, 2);
 
     fmt.print('[');
 
-    for i := 0; i < 5; i += 1 {
-        fmt.print(get(list, i));
+    for i := 0; i < 4; i += 1 {
+        node, _ := get(list, i);
+        fmt.print(node.value^);
 
-        if (i != 4) {
+        if (i != 3) {
             fmt.print(", ");
         }
     }
