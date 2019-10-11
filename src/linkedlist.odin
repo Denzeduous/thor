@@ -74,18 +74,18 @@ removeAt :: proc(list: ^LinkedList($T), index: int) -> LinkedListError {
     list := list;
     previous: ^Node(T) = nil;
     node: ^Node(T) = list.first;
-
+    fmt.println("Got here");
     for i := 0; i < index; i += 1 {
         if (node == nil) {
             return .OUT_OF_BOUNDS;
         }
-
+        fmt.println("Got here 2");
         previous = node;
         node = node.next;
     }
-
-    node.next = previous.next;
-    previous.next = node;
+    fmt.println("Got here 3");
+    previous.next = node.next;
+    fmt.println("Got here 4");
     return .NOERR;
 }
 
@@ -127,9 +127,30 @@ main :: proc() {
     value^ = 1;
     insert(list, value);
 
+    fmt.print('[');
+
     for i := 0; i < 5; i += 1 {
-       fmt.println(i); 
+        fmt.print(i);
+
+        if (i != 4) {
+            fmt.print(", ");
+        }
     }
 
-    removeAt(list, 2);
+    fmt.println(']');
+
+    err := removeAt(list, 2);
+    fmt.println(err);
+
+    fmt.print('[');
+
+    for i := 0; i < 5; i += 1 {
+        fmt.print(i);
+
+        if (i != 4) {
+            fmt.print(", ");
+        }
+    }
+
+    fmt.println(']');
 }
