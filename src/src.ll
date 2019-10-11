@@ -49,8 +49,8 @@ declare void @llvm.dbg.declare(metadata, metadata, metadata) #3
 %runtime.Context = type {%mem.Allocator, %mem.Allocator, void (%..string, %..string, %runtime.Source_Code_Location*, %runtime.Context*)*, %log.Logger, i64, i64, i64, i64, %..any, %..rawptr, i64, %..any}
 %runtime.Map_Key = type {i64, %..string}
 %runtime.Map_Entry_Header = type {%runtime.Map_Key, i64}
-%"LinkedList.Node-386.Node\28T\29-6195" = type {i64*, %"LinkedList.Node-386.Node\28T\29-6195"*}
-%"LinkedList.LinkedList-387.LinkedList\28int\29-6192" = type {%"LinkedList.Node-386.Node\28T\29-6195"*, %"LinkedList.Node-386.Node\28T\29-6195"*, i64}
+%"LinkedList.Node-386.Node\28T\29-6193" = type {i64*, %"LinkedList.Node-386.Node\28T\29-6193"*}
+%"LinkedList.LinkedList-387.LinkedList\28int\29-6190" = type {%"LinkedList.Node-386.Node\28T\29-6193"*, %"LinkedList.Node-386.Node\28T\29-6193"*, i64}
 %LinkedList.LinkedListError = type i64
 %fmt.Info = type {i8, i8, i8, i8, i8, i8, i8, i64, i64, i64, i8, i8, %strings.Builder*, %..any, i64}
 %mem.Raw_String = type {i8*, i64}
@@ -3484,7 +3484,7 @@ for.body-3:
 	; AssignStmt
 	; SelectorExpr
 	%17 = load i8*, i8** %2, align 8
-	%18 = call i8* @mem.ptr_offset-5851(i8* %17, i64 1)
+	%18 = call i8* @mem.ptr_offset-5849(i8* %17, i64 1)
 	store i8* %18, i8** %2
 	br label %for.loop-1
 
@@ -5529,7 +5529,7 @@ if.done-2:
 
 define void @LinkedList.main() #0 {
 decls-0:
-	%0 = alloca %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"*, align 16
+	%0 = alloca %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"*, align 16
 	%1 = alloca %runtime.Context, align 16
 	%2 = bitcast %runtime.Context* %1 to %..rawptr
 	; ZeroInit
@@ -5552,73 +5552,73 @@ decls-0:
 	; SelectorExpr
 	%16 = getelementptr inbounds %runtime.Context, %runtime.Context* %1, i32 0, i32 0
 	store %runtime.Source_Code_Location {%..string {i8* getelementptr inbounds ([73 x i8], [73 x i8]* @str$5c, i32 0, i32 0), i64 72}, i64 108, i64 13, %..string {i8* getelementptr inbounds ([5 x i8], [5 x i8]* @str$5d, i32 0, i32 0), i64 4}, i64 12378879641500791202}, %runtime.Source_Code_Location* %5
-	%17 = call %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"* @mem.new-6209(%mem.Allocator* %16, %runtime.Source_Code_Location* %5, %runtime.Context* noalias nonnull nocapture %1)
-	store %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"* %17, %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"** %0
+	%17 = call %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"* @mem.new-6207(%mem.Allocator* %16, %runtime.Source_Code_Location* %5, %runtime.Context* noalias nonnull nocapture %1)
+	store %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"* %17, %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"** %0
 	; value
 	; SelectorExpr
 	%18 = getelementptr inbounds %runtime.Context, %runtime.Context* %1, i32 0, i32 0
 	store %runtime.Source_Code_Location {%..string {i8* getelementptr inbounds ([73 x i8], [73 x i8]* @str$5e, i32 0, i32 0), i64 72}, i64 110, i64 14, %..string {i8* getelementptr inbounds ([5 x i8], [5 x i8]* @str$5f, i32 0, i32 0), i64 4}, i64 12378878541989166353}, %runtime.Source_Code_Location* %7
-	%19 = call i64* @mem.new-6219(%mem.Allocator* %18, %runtime.Source_Code_Location* %7, %runtime.Context* noalias nonnull nocapture %1)
+	%19 = call i64* @mem.new-6217(%mem.Allocator* %18, %runtime.Source_Code_Location* %7, %runtime.Context* noalias nonnull nocapture %1)
 	store i64* %19, i64** %6
 	; AssignStmt
 	%20 = load i64*, i64** %6, align 8
 	%21 = getelementptr inbounds i64, i64* %20, i64 0
 	store i64 1, i64* %21
-	%22 = load %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"*, %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"** %0, align 8
+	%22 = load %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"*, %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"** %0, align 8
 	%23 = load i64*, i64** %6, align 8
-	call void @LinkedList.insert-6234(%"LinkedList.LinkedList-387.LinkedList\28int\29-6192"* %22, i64* %23, %runtime.Context* noalias nonnull nocapture %1)
+	call void @LinkedList.insert-6232(%"LinkedList.LinkedList-387.LinkedList\28int\29-6190"* %22, i64* %23, %runtime.Context* noalias nonnull nocapture %1)
 	; AssignStmt
 	; SelectorExpr
 	%24 = getelementptr inbounds %runtime.Context, %runtime.Context* %1, i32 0, i32 0
 	store %runtime.Source_Code_Location {%..string {i8* getelementptr inbounds ([73 x i8], [73 x i8]* @str$60, i32 0, i32 0), i64 72}, i64 114, i64 13, %..string {i8* getelementptr inbounds ([5 x i8], [5 x i8]* @str$61, i32 0, i32 0), i64 4}, i64 12378851054198474640}, %runtime.Source_Code_Location* %8
-	%25 = call i64* @mem.new-6219(%mem.Allocator* %24, %runtime.Source_Code_Location* %8, %runtime.Context* noalias nonnull nocapture %1)
+	%25 = call i64* @mem.new-6217(%mem.Allocator* %24, %runtime.Source_Code_Location* %8, %runtime.Context* noalias nonnull nocapture %1)
 	store i64* %25, i64** %6
 	; AssignStmt
 	%26 = load i64*, i64** %6, align 8
 	%27 = getelementptr inbounds i64, i64* %26, i64 0
 	store i64 1, i64* %27
-	%28 = load %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"*, %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"** %0, align 8
+	%28 = load %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"*, %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"** %0, align 8
 	%29 = load i64*, i64** %6, align 8
-	call void @LinkedList.insert-6234(%"LinkedList.LinkedList-387.LinkedList\28int\29-6192"* %28, i64* %29, %runtime.Context* noalias nonnull nocapture %1)
+	call void @LinkedList.insert-6232(%"LinkedList.LinkedList-387.LinkedList\28int\29-6190"* %28, i64* %29, %runtime.Context* noalias nonnull nocapture %1)
 	; AssignStmt
 	; SelectorExpr
 	%30 = getelementptr inbounds %runtime.Context, %runtime.Context* %1, i32 0, i32 0
 	store %runtime.Source_Code_Location {%..string {i8* getelementptr inbounds ([73 x i8], [73 x i8]* @str$62, i32 0, i32 0), i64 72}, i64 118, i64 13, %..string {i8* getelementptr inbounds ([5 x i8], [5 x i8]* @str$63, i32 0, i32 0), i64 4}, i64 12378855452244987556}, %runtime.Source_Code_Location* %9
-	%31 = call i64* @mem.new-6219(%mem.Allocator* %30, %runtime.Source_Code_Location* %9, %runtime.Context* noalias nonnull nocapture %1)
+	%31 = call i64* @mem.new-6217(%mem.Allocator* %30, %runtime.Source_Code_Location* %9, %runtime.Context* noalias nonnull nocapture %1)
 	store i64* %31, i64** %6
 	; AssignStmt
 	%32 = load i64*, i64** %6, align 8
 	%33 = getelementptr inbounds i64, i64* %32, i64 0
 	store i64 1, i64* %33
-	%34 = load %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"*, %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"** %0, align 8
+	%34 = load %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"*, %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"** %0, align 8
 	%35 = load i64*, i64** %6, align 8
-	call void @LinkedList.insert-6234(%"LinkedList.LinkedList-387.LinkedList\28int\29-6192"* %34, i64* %35, %runtime.Context* noalias nonnull nocapture %1)
+	call void @LinkedList.insert-6232(%"LinkedList.LinkedList-387.LinkedList\28int\29-6190"* %34, i64* %35, %runtime.Context* noalias nonnull nocapture %1)
 	; AssignStmt
 	; SelectorExpr
 	%36 = getelementptr inbounds %runtime.Context, %runtime.Context* %1, i32 0, i32 0
 	store %runtime.Source_Code_Location {%..string {i8* getelementptr inbounds ([73 x i8], [73 x i8]* @str$64, i32 0, i32 0), i64 72}, i64 122, i64 13, %..string {i8* getelementptr inbounds ([5 x i8], [5 x i8]* @str$65, i32 0, i32 0), i64 4}, i64 12378859850291497320}, %runtime.Source_Code_Location* %10
-	%37 = call i64* @mem.new-6219(%mem.Allocator* %36, %runtime.Source_Code_Location* %10, %runtime.Context* noalias nonnull nocapture %1)
+	%37 = call i64* @mem.new-6217(%mem.Allocator* %36, %runtime.Source_Code_Location* %10, %runtime.Context* noalias nonnull nocapture %1)
 	store i64* %37, i64** %6
 	; AssignStmt
 	%38 = load i64*, i64** %6, align 8
 	%39 = getelementptr inbounds i64, i64* %38, i64 0
 	store i64 1, i64* %39
-	%40 = load %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"*, %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"** %0, align 8
+	%40 = load %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"*, %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"** %0, align 8
 	%41 = load i64*, i64** %6, align 8
-	call void @LinkedList.insert-6234(%"LinkedList.LinkedList-387.LinkedList\28int\29-6192"* %40, i64* %41, %runtime.Context* noalias nonnull nocapture %1)
+	call void @LinkedList.insert-6232(%"LinkedList.LinkedList-387.LinkedList\28int\29-6190"* %40, i64* %41, %runtime.Context* noalias nonnull nocapture %1)
 	; AssignStmt
 	; SelectorExpr
 	%42 = getelementptr inbounds %runtime.Context, %runtime.Context* %1, i32 0, i32 0
 	store %runtime.Source_Code_Location {%..string {i8* getelementptr inbounds ([73 x i8], [73 x i8]* @str$66, i32 0, i32 0), i64 72}, i64 126, i64 13, %..string {i8* getelementptr inbounds ([5 x i8], [5 x i8]* @str$67, i32 0, i32 0), i64 4}, i64 12378864248338010172}, %runtime.Source_Code_Location* %11
-	%43 = call i64* @mem.new-6219(%mem.Allocator* %42, %runtime.Source_Code_Location* %11, %runtime.Context* noalias nonnull nocapture %1)
+	%43 = call i64* @mem.new-6217(%mem.Allocator* %42, %runtime.Source_Code_Location* %11, %runtime.Context* noalias nonnull nocapture %1)
 	store i64* %43, i64** %6
 	; AssignStmt
 	%44 = load i64*, i64** %6, align 8
 	%45 = getelementptr inbounds i64, i64* %44, i64 0
 	store i64 1, i64* %45
-	%46 = load %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"*, %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"** %0, align 8
+	%46 = load %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"*, %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"** %0, align 8
 	%47 = load i64*, i64** %6, align 8
-	call void @LinkedList.insert-6234(%"LinkedList.LinkedList-387.LinkedList\28int\29-6192"* %46, i64* %47, %runtime.Context* noalias nonnull nocapture %1)
+	call void @LinkedList.insert-6232(%"LinkedList.LinkedList-387.LinkedList\28int\29-6190"* %46, i64* %47, %runtime.Context* noalias nonnull nocapture %1)
 	; ForStmt
 	; i
 	store i64 0, i64* %12
@@ -5661,8 +5661,8 @@ for.body-2:
 	br label %for.loop-1
 
 for.done-3:
-	%63 = load %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"*, %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"** %0, align 8
-	%64 = call i64 @LinkedList.removeAt-6294(%"LinkedList.LinkedList-387.LinkedList\28int\29-6192"* %63, i64 2, %runtime.Context* noalias nonnull nocapture %1)
+	%63 = load %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"*, %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"** %0, align 8
+	%64 = call i64 @LinkedList.removeAt-6292(%"LinkedList.LinkedList-387.LinkedList\28int\29-6190"* %63, i64 2, %runtime.Context* noalias nonnull nocapture %1)
 	ret void
 }
 
@@ -13510,7 +13510,7 @@ for.interval.body-6:
 	; SelectorExpr
 	%24 = load i8*, i8** %2, align 8
 	%25 = load i64, i64* %3, align 8
-	%26 = call i8* @mem.ptr_offset-5851(i8* %24, i64 %25)
+	%26 = call i8* @mem.ptr_offset-5849(i8* %24, i64 %25)
 	%27 = getelementptr inbounds i8, i8* %26, i64 0
 	%28 = load i8, i8* %27, align 1
 	%29 = icmp ne i8 %28, 0
@@ -17919,7 +17919,7 @@ if.then-1:
 	store %runtime.Source_Code_Location {%..string {i8* getelementptr inbounds ([65 x i8], [65 x i8]* @str$f2, i32 0, i32 0), i64 64}, i64 119, i64 35, %..string {i8* getelementptr inbounds ([23 x i8], [23 x i8]* @str$f3, i32 0, i32 0), i64 22}, i64 15949023725646693122}, %runtime.Source_Code_Location* %8
 	; ZeroInit
 	store {i8*, i64} zeroinitializer, {i8*, i64}* %9, align 1
-	call void @mem.make_slice-6892({i8*, i64}* %9, i64 4194304, %mem.Allocator* %40, %runtime.Source_Code_Location* %8, %runtime.Context* noalias nonnull nocapture %__.context_ptr)
+	call void @mem.make_slice-6890({i8*, i64}* %9, i64 4194304, %mem.Allocator* %40, %runtime.Source_Code_Location* %8, %runtime.Context* noalias nonnull nocapture %__.context_ptr)
 	; SelectorExpr
 	%41 = getelementptr inbounds %runtime.Context, %runtime.Context* %__.context_ptr, i32 0, i32 0
 	call void @mem.scratch_allocator_init(%mem.Scratch_Allocator* %39, {i8*, i64}* %9, %mem.Allocator* %41, %runtime.Context* noalias nonnull nocapture %__.context_ptr)
@@ -18119,7 +18119,7 @@ if.then-11:
 	%153 = bitcast {%..rawptr*, i64, i64, %mem.Allocator}* %17 to %..rawptr
 	; ZeroInit
 	store {%..rawptr*, i64, i64, %mem.Allocator} zeroinitializer, {%..rawptr*, i64, i64, %mem.Allocator}* %17, align 1
-	call void @mem.make_dynamic_array-6946({%..rawptr*, i64, i64, %mem.Allocator}* %17, %mem.Allocator* %14, %runtime.Source_Code_Location* %16, %runtime.Context* noalias nonnull nocapture %__.context_ptr)
+	call void @mem.make_dynamic_array-6944({%..rawptr*, i64, i64, %mem.Allocator}* %17, %mem.Allocator* %14, %runtime.Source_Code_Location* %16, %runtime.Context* noalias nonnull nocapture %__.context_ptr)
 	%154 = load {%..rawptr*, i64, i64, %mem.Allocator}, {%..rawptr*, i64, i64, %mem.Allocator}* %17, align 8
 	store {%..rawptr*, i64, i64, %mem.Allocator} %154, {%..rawptr*, i64, i64, %mem.Allocator}* %152
 	br label %if.done-12
@@ -18130,7 +18130,7 @@ if.done-12:
 	%156 = getelementptr inbounds %mem.Scratch_Allocator, %mem.Scratch_Allocator* %155, i32 0, i32 4
 	%157 = load %..rawptr, %..rawptr* %15, align 8
 	store %runtime.Source_Code_Location {%..string {i8* getelementptr inbounds ([65 x i8], [65 x i8]* @str$f8, i32 0, i32 0), i64 64}, i64 151, i64 3, %..string {i8* getelementptr inbounds ([23 x i8], [23 x i8]* @str$f9, i32 0, i32 0), i64 22}, i64 15949094094390900674}, %runtime.Source_Code_Location* %18
-	call void @runtime.append_elem-6989({%..rawptr*, i64, i64, %mem.Allocator}* %156, %..rawptr %157, %runtime.Source_Code_Location* %18, %runtime.Context* noalias nonnull nocapture %__.context_ptr)
+	call void @runtime.append_elem-6987({%..rawptr*, i64, i64, %mem.Allocator}* %156, %..rawptr %157, %runtime.Source_Code_Location* %18, %runtime.Context* noalias nonnull nocapture %__.context_ptr)
 	; ReturnStmt
 	%158 = load %..rawptr, %..rawptr* %15, align 8
 	ret %..rawptr %158
@@ -18247,7 +18247,7 @@ for.index.done-21:
 	; SelectorExpr
 	%210 = load %mem.Scratch_Allocator*, %mem.Scratch_Allocator** %7, align 8
 	%211 = getelementptr inbounds %mem.Scratch_Allocator, %mem.Scratch_Allocator* %210, i32 0, i32 4
-	call void @runtime.clear_dynamic_array-7015({%..rawptr*, i64, i64, %mem.Allocator}* %211)
+	call void @runtime.clear_dynamic_array-7013({%..rawptr*, i64, i64, %mem.Allocator}* %211)
 	br label %switch.done-27
 
 switch.case.next-22:
@@ -20141,7 +20141,7 @@ if.done-13:
 	store i8* %88, i8** %89
 	%90 = getelementptr inbounds {i8*, i64}, {i8*, i64}* %13, i32 0, i32 1
 	store i64 %86, i64* %90
-	%91 = call i64 @runtime.copy-7724({i8*, i64}* %_.0, {i8*, i64}* %13)
+	%91 = call i64 @runtime.copy-7722({i8*, i64}* %_.0, {i8*, i64}* %13)
 	store i64 %91, i64* %11
 	; ReturnStmt
 	; SliceExpr
@@ -21341,7 +21341,7 @@ decls-0:
 	store i8* %12, i8** %14
 	%15 = getelementptr inbounds {i8*, i64}, {i8*, i64}* %1, i32 0, i32 1
 	store i64 %13, i64* %15
-	%16 = call i64 @runtime.copy-7724({i8*, i64}* %1, {i8*, i64}* %_.1)
+	%16 = call i64 @runtime.copy-7722({i8*, i64}* %1, {i8*, i64}* %_.1)
 	%17 = load i64, i64* %3, align 8
 	%18 = add i64 %17, %16
 	store i64 %18, i64* %3
@@ -22284,7 +22284,7 @@ switch.done-28:
 	store i64 %159, i64* %161
 	%162 = load {i8*, i64}, {i8*, i64}* %15, align 8
 	store {i8*, i64} %162, {i8*, i64}* %14
-	%163 = call i64 @runtime.copy-7724({i8*, i64}* %_.0, {i8*, i64}* %14)
+	%163 = call i64 @runtime.copy-7722({i8*, i64}* %_.0, {i8*, i64}* %14)
 	; ReturnStmt
 	; SliceExpr
 	%164 = load {i8*, i64}, {i8*, i64}* %14, align 8
@@ -22853,7 +22853,7 @@ switch.done-28:
 	store i64 %163, i64* %165
 	%166 = load {i8*, i64}, {i8*, i64}* %15, align 8
 	store {i8*, i64} %166, {i8*, i64}* %14
-	%167 = call i64 @runtime.copy-7724({i8*, i64}* %_.0, {i8*, i64}* %14)
+	%167 = call i64 @runtime.copy-7722({i8*, i64}* %_.0, {i8*, i64}* %14)
 	; ReturnStmt
 	; SliceExpr
 	%168 = load {i8*, i64}, {i8*, i64}* %14, align 8
@@ -22963,7 +22963,7 @@ decls-0:
 	%4 = getelementptr inbounds %strings.Builder, %strings.Builder* %3, i32 0, i32 0
 	%5 = load i8, i8* %1, align 1
 	store %runtime.Source_Code_Location {%..string {i8* getelementptr inbounds ([66 x i8], [66 x i8]* @str$153, i32 0, i32 0), i64 65}, i64 50, i64 2, %..string {i8* getelementptr inbounds ([11 x i8], [11 x i8]* @str$154, i32 0, i32 0), i64 10}, i64 3004020323194892896}, %runtime.Source_Code_Location* %2
-	call void @runtime.append_elem-8301({i8*, i64, i64, %mem.Allocator}* %4, i8 %5, %runtime.Source_Code_Location* %2, %runtime.Context* noalias nonnull nocapture %__.context_ptr)
+	call void @runtime.append_elem-8299({i8*, i64, i64, %mem.Allocator}* %4, i8 %5, %runtime.Source_Code_Location* %2, %runtime.Context* noalias nonnull nocapture %__.context_ptr)
 	ret void
 }
 
@@ -23055,7 +23055,7 @@ decls-0:
 	%2 = load %strings.Builder*, %strings.Builder** %0, align 8
 	%3 = getelementptr inbounds %strings.Builder, %strings.Builder* %2, i32 0, i32 0
 	store %runtime.Source_Code_Location {%..string {i8* getelementptr inbounds ([66 x i8], [66 x i8]* @str$156, i32 0, i32 0), i64 65}, i64 69, i64 2, %..string {i8* getelementptr inbounds ([12 x i8], [12 x i8]* @str$157, i32 0, i32 0), i64 11}, i64 3003931262753035177}, %runtime.Source_Code_Location* %1
-	call void @runtime.append_elems-8312({i8*, i64, i64, %mem.Allocator}* %3, {i8*, i64}* %_.1, %runtime.Source_Code_Location* %1, %runtime.Context* noalias nonnull nocapture %__.context_ptr)
+	call void @runtime.append_elems-8310({i8*, i64, i64, %mem.Allocator}* %3, {i8*, i64}* %_.1, %runtime.Source_Code_Location* %1, %runtime.Context* noalias nonnull nocapture %__.context_ptr)
 	ret void
 }
 
@@ -26530,7 +26530,7 @@ typeswitch.done-136:
 	ret void
 }
 
-define i8* @mem.ptr_offset-5851(i8* %_.0, i64 %_.1) alwaysinline #1 {
+define i8* @mem.ptr_offset-5849(i8* %_.0, i64 %_.1) alwaysinline #1 {
 decls-0:
 	%0 = alloca i8*, align 16
 	%1 = alloca i64, align 16
@@ -26552,34 +26552,34 @@ decls-0:
 	ret i8* %11
 }
 
-define %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"* @mem.new-6209(%mem.Allocator* %_.1, %runtime.Source_Code_Location* %_.2, %runtime.Context* noalias nonnull nocapture %__.context_ptr) alwaysinline #1 {
+define %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"* @mem.new-6207(%mem.Allocator* %_.1, %runtime.Source_Code_Location* %_.2, %runtime.Context* noalias nonnull nocapture %__.context_ptr) alwaysinline #1 {
 decls-0:
-	%0 = alloca %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"*, align 16
+	%0 = alloca %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"*, align 16
 	; ptr
 	%1 = call %..rawptr @mem.alloc(i64 24, i64 8, %mem.Allocator* %_.1, %runtime.Source_Code_Location* %_.2, %runtime.Context* noalias nonnull nocapture %__.context_ptr) alwaysinline
-	%2 = bitcast %..rawptr %1 to %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"*
-	store %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"* %2, %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"** %0
+	%2 = bitcast %..rawptr %1 to %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"*
+	store %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"* %2, %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"** %0
 	; IfStmt
-	%3 = load %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"*, %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"** %0, align 8
-	%4 = icmp ne %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"* %3, zeroinitializer
+	%3 = load %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"*, %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"** %0, align 8
+	%4 = icmp ne %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"* %3, zeroinitializer
 	%5 = zext i1 %4 to i8
 	%6 = trunc i8 %5 to i1
 	br i1 %6, label %if.then-1, label %if.done-2
 
 if.then-1:
 	; AssignStmt
-	%7 = load %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"*, %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"** %0, align 8
-	%8 = getelementptr inbounds %"LinkedList.LinkedList-387.LinkedList\28int\29-6192", %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"* %7, i64 0
-	store %"LinkedList.LinkedList-387.LinkedList\28int\29-6192" zeroinitializer, %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"* %8
+	%7 = load %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"*, %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"** %0, align 8
+	%8 = getelementptr inbounds %"LinkedList.LinkedList-387.LinkedList\28int\29-6190", %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"* %7, i64 0
+	store %"LinkedList.LinkedList-387.LinkedList\28int\29-6190" zeroinitializer, %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"* %8
 	br label %if.done-2
 
 if.done-2:
 	; ReturnStmt
-	%9 = load %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"*, %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"** %0, align 8
-	ret %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"* %9
+	%9 = load %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"*, %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"** %0, align 8
+	ret %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"* %9
 }
 
-define i64* @mem.new-6219(%mem.Allocator* %_.1, %runtime.Source_Code_Location* %_.2, %runtime.Context* noalias nonnull nocapture %__.context_ptr) alwaysinline #1 {
+define i64* @mem.new-6217(%mem.Allocator* %_.1, %runtime.Source_Code_Location* %_.2, %runtime.Context* noalias nonnull nocapture %__.context_ptr) alwaysinline #1 {
 decls-0:
 	%0 = alloca i64*, align 16
 	; ptr
@@ -26606,40 +26606,40 @@ if.done-2:
 	ret i64* %9
 }
 
-define void @LinkedList.insert-6234(%"LinkedList.LinkedList-387.LinkedList\28int\29-6192"* %_.0, i64* %_.1, %runtime.Context* noalias nonnull nocapture %__.context_ptr) #0 {
+define void @LinkedList.insert-6232(%"LinkedList.LinkedList-387.LinkedList\28int\29-6190"* %_.0, i64* %_.1, %runtime.Context* noalias nonnull nocapture %__.context_ptr) #0 {
 decls-0:
-	%0 = alloca %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"*, align 16
+	%0 = alloca %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"*, align 16
 	%1 = alloca i64*, align 16
-	%2 = alloca %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"*, align 16
+	%2 = alloca %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"*, align 16
 	%3 = alloca i64*, align 16
-	%4 = alloca %"LinkedList.Node-386.Node\28T\29-6195"*, align 16
+	%4 = alloca %"LinkedList.Node-386.Node\28T\29-6193"*, align 16
 	%5 = alloca %runtime.Source_Code_Location, align 16
-	store %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"* %_.0, %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"** %0
+	store %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"* %_.0, %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"** %0
 	store i64* %_.1, i64** %1
 	; list
 	; value
-	%6 = load %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"*, %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"** %0, align 8
+	%6 = load %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"*, %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"** %0, align 8
 	%7 = load i64*, i64** %1, align 8
-	store %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"* %6, %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"** %2
+	store %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"* %6, %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"** %2
 	store i64* %7, i64** %3
 	; newnode
 	; SelectorExpr
 	%8 = getelementptr inbounds %runtime.Context, %runtime.Context* %__.context_ptr, i32 0, i32 0
 	store %runtime.Source_Code_Location {%..string {i8* getelementptr inbounds ([73 x i8], [73 x i8]* @str$1c2, i32 0, i32 0), i64 72}, i64 24, i64 25, %..string {i8* getelementptr inbounds ([7 x i8], [7 x i8]* @str$1c3, i32 0, i32 0), i64 6}, i64 12378985194617082498}, %runtime.Source_Code_Location* %5
-	%9 = call %"LinkedList.Node-386.Node\28T\29-6195"* @mem.new-9574(%mem.Allocator* %8, %runtime.Source_Code_Location* %5, %runtime.Context* noalias nonnull nocapture %__.context_ptr)
-	store %"LinkedList.Node-386.Node\28T\29-6195"* %9, %"LinkedList.Node-386.Node\28T\29-6195"** %4
+	%9 = call %"LinkedList.Node-386.Node\28T\29-6193"* @mem.new-9572(%mem.Allocator* %8, %runtime.Source_Code_Location* %5, %runtime.Context* noalias nonnull nocapture %__.context_ptr)
+	store %"LinkedList.Node-386.Node\28T\29-6193"* %9, %"LinkedList.Node-386.Node\28T\29-6193"** %4
 	; AssignStmt
 	; SelectorExpr
-	%10 = load %"LinkedList.Node-386.Node\28T\29-6195"*, %"LinkedList.Node-386.Node\28T\29-6195"** %4, align 8
-	%11 = getelementptr inbounds %"LinkedList.Node-386.Node\28T\29-6195", %"LinkedList.Node-386.Node\28T\29-6195"* %10, i32 0, i32 0
+	%10 = load %"LinkedList.Node-386.Node\28T\29-6193"*, %"LinkedList.Node-386.Node\28T\29-6193"** %4, align 8
+	%11 = getelementptr inbounds %"LinkedList.Node-386.Node\28T\29-6193", %"LinkedList.Node-386.Node\28T\29-6193"* %10, i32 0, i32 0
 	%12 = load i64*, i64** %3, align 8
 	store i64* %12, i64** %11
 	; IfStmt
 	; SelectorExpr
-	%13 = load %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"*, %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"** %2, align 8
-	%14 = getelementptr inbounds %"LinkedList.LinkedList-387.LinkedList\28int\29-6192", %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"* %13, i32 0, i32 0
-	%15 = load %"LinkedList.Node-386.Node\28T\29-6195"*, %"LinkedList.Node-386.Node\28T\29-6195"** %14, align 8
-	%16 = icmp eq %"LinkedList.Node-386.Node\28T\29-6195"* %15, zeroinitializer
+	%13 = load %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"*, %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"** %2, align 8
+	%14 = getelementptr inbounds %"LinkedList.LinkedList-387.LinkedList\28int\29-6190", %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"* %13, i32 0, i32 0
+	%15 = load %"LinkedList.Node-386.Node\28T\29-6193"*, %"LinkedList.Node-386.Node\28T\29-6193"** %14, align 8
+	%16 = icmp eq %"LinkedList.Node-386.Node\28T\29-6193"* %15, zeroinitializer
 	%17 = zext i1 %16 to i8
 	%18 = trunc i8 %17 to i1
 	br i1 %18, label %if.then-1, label %if.done-2
@@ -26647,16 +26647,16 @@ decls-0:
 if.then-1:
 	; AssignStmt
 	; SelectorExpr
-	%19 = load %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"*, %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"** %2, align 8
-	%20 = getelementptr inbounds %"LinkedList.LinkedList-387.LinkedList\28int\29-6192", %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"* %19, i32 0, i32 0
-	%21 = load %"LinkedList.Node-386.Node\28T\29-6195"*, %"LinkedList.Node-386.Node\28T\29-6195"** %4, align 8
-	store %"LinkedList.Node-386.Node\28T\29-6195"* %21, %"LinkedList.Node-386.Node\28T\29-6195"** %20
+	%19 = load %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"*, %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"** %2, align 8
+	%20 = getelementptr inbounds %"LinkedList.LinkedList-387.LinkedList\28int\29-6190", %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"* %19, i32 0, i32 0
+	%21 = load %"LinkedList.Node-386.Node\28T\29-6193"*, %"LinkedList.Node-386.Node\28T\29-6193"** %4, align 8
+	store %"LinkedList.Node-386.Node\28T\29-6193"* %21, %"LinkedList.Node-386.Node\28T\29-6193"** %20
 	; AssignStmt
 	; SelectorExpr
-	%22 = load %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"*, %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"** %2, align 8
-	%23 = getelementptr inbounds %"LinkedList.LinkedList-387.LinkedList\28int\29-6192", %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"* %22, i32 0, i32 1
-	%24 = load %"LinkedList.Node-386.Node\28T\29-6195"*, %"LinkedList.Node-386.Node\28T\29-6195"** %4, align 8
-	store %"LinkedList.Node-386.Node\28T\29-6195"* %24, %"LinkedList.Node-386.Node\28T\29-6195"** %23
+	%22 = load %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"*, %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"** %2, align 8
+	%23 = getelementptr inbounds %"LinkedList.LinkedList-387.LinkedList\28int\29-6190", %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"* %22, i32 0, i32 1
+	%24 = load %"LinkedList.Node-386.Node\28T\29-6193"*, %"LinkedList.Node-386.Node\28T\29-6193"** %4, align 8
+	store %"LinkedList.Node-386.Node\28T\29-6193"* %24, %"LinkedList.Node-386.Node\28T\29-6193"** %23
 	; ReturnStmt
 	ret void
 
@@ -26664,36 +26664,36 @@ if.done-2:
 	; AssignStmt
 	; SelectorExpr
 	; SelectorExpr
-	%25 = load %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"*, %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"** %2, align 8
-	%26 = getelementptr inbounds %"LinkedList.LinkedList-387.LinkedList\28int\29-6192", %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"* %25, i32 0, i32 1
-	%27 = load %"LinkedList.Node-386.Node\28T\29-6195"*, %"LinkedList.Node-386.Node\28T\29-6195"** %26, align 8
-	%28 = getelementptr inbounds %"LinkedList.Node-386.Node\28T\29-6195", %"LinkedList.Node-386.Node\28T\29-6195"* %27, i32 0, i32 1
-	%29 = load %"LinkedList.Node-386.Node\28T\29-6195"*, %"LinkedList.Node-386.Node\28T\29-6195"** %4, align 8
-	store %"LinkedList.Node-386.Node\28T\29-6195"* %29, %"LinkedList.Node-386.Node\28T\29-6195"** %28
+	%25 = load %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"*, %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"** %2, align 8
+	%26 = getelementptr inbounds %"LinkedList.LinkedList-387.LinkedList\28int\29-6190", %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"* %25, i32 0, i32 1
+	%27 = load %"LinkedList.Node-386.Node\28T\29-6193"*, %"LinkedList.Node-386.Node\28T\29-6193"** %26, align 8
+	%28 = getelementptr inbounds %"LinkedList.Node-386.Node\28T\29-6193", %"LinkedList.Node-386.Node\28T\29-6193"* %27, i32 0, i32 1
+	%29 = load %"LinkedList.Node-386.Node\28T\29-6193"*, %"LinkedList.Node-386.Node\28T\29-6193"** %4, align 8
+	store %"LinkedList.Node-386.Node\28T\29-6193"* %29, %"LinkedList.Node-386.Node\28T\29-6193"** %28
 	ret void
 }
 
-define i64 @LinkedList.removeAt-6294(%"LinkedList.LinkedList-387.LinkedList\28int\29-6192"* %_.0, i64 %_.1, %runtime.Context* noalias nonnull nocapture %__.context_ptr) #0 {
+define i64 @LinkedList.removeAt-6292(%"LinkedList.LinkedList-387.LinkedList\28int\29-6190"* %_.0, i64 %_.1, %runtime.Context* noalias nonnull nocapture %__.context_ptr) #0 {
 decls-0:
-	%0 = alloca %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"*, align 16
+	%0 = alloca %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"*, align 16
 	%1 = alloca i64, align 16
-	%2 = alloca %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"*, align 16
-	%3 = alloca %"LinkedList.Node-386.Node\28T\29-6195"*, align 16
-	%4 = alloca %"LinkedList.Node-386.Node\28T\29-6195"*, align 16
+	%2 = alloca %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"*, align 16
+	%3 = alloca %"LinkedList.Node-386.Node\28T\29-6193"*, align 16
+	%4 = alloca %"LinkedList.Node-386.Node\28T\29-6193"*, align 16
 	%5 = alloca i64, align 16
-	store %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"* %_.0, %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"** %0
+	store %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"* %_.0, %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"** %0
 	store i64 %_.1, i64* %1
 	; list
-	%6 = load %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"*, %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"** %0, align 8
-	store %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"* %6, %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"** %2
+	%6 = load %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"*, %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"** %0, align 8
+	store %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"* %6, %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"** %2
 	; previous
-	store %"LinkedList.Node-386.Node\28T\29-6195"* zeroinitializer, %"LinkedList.Node-386.Node\28T\29-6195"** %3
+	store %"LinkedList.Node-386.Node\28T\29-6193"* zeroinitializer, %"LinkedList.Node-386.Node\28T\29-6193"** %3
 	; node
 	; SelectorExpr
-	%7 = load %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"*, %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"** %2, align 8
-	%8 = getelementptr inbounds %"LinkedList.LinkedList-387.LinkedList\28int\29-6192", %"LinkedList.LinkedList-387.LinkedList\28int\29-6192"* %7, i32 0, i32 0
-	%9 = load %"LinkedList.Node-386.Node\28T\29-6195"*, %"LinkedList.Node-386.Node\28T\29-6195"** %8, align 8
-	store %"LinkedList.Node-386.Node\28T\29-6195"* %9, %"LinkedList.Node-386.Node\28T\29-6195"** %4
+	%7 = load %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"*, %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"** %2, align 8
+	%8 = getelementptr inbounds %"LinkedList.LinkedList-387.LinkedList\28int\29-6190", %"LinkedList.LinkedList-387.LinkedList\28int\29-6190"* %7, i32 0, i32 0
+	%9 = load %"LinkedList.Node-386.Node\28T\29-6193"*, %"LinkedList.Node-386.Node\28T\29-6193"** %8, align 8
+	store %"LinkedList.Node-386.Node\28T\29-6193"* %9, %"LinkedList.Node-386.Node\28T\29-6193"** %4
 	; ForStmt
 	; i
 	store i64 0, i64* %5
@@ -26709,8 +26709,8 @@ for.loop-1:
 
 for.body-2:
 	; IfStmt
-	%15 = load %"LinkedList.Node-386.Node\28T\29-6195"*, %"LinkedList.Node-386.Node\28T\29-6195"** %4, align 8
-	%16 = icmp eq %"LinkedList.Node-386.Node\28T\29-6195"* %15, zeroinitializer
+	%15 = load %"LinkedList.Node-386.Node\28T\29-6193"*, %"LinkedList.Node-386.Node\28T\29-6193"** %4, align 8
+	%16 = icmp eq %"LinkedList.Node-386.Node\28T\29-6193"* %15, zeroinitializer
 	%17 = zext i1 %16 to i8
 	%18 = trunc i8 %17 to i1
 	br i1 %18, label %if.then-3, label %if.done-4
@@ -26721,14 +26721,14 @@ if.then-3:
 
 if.done-4:
 	; AssignStmt
-	%19 = load %"LinkedList.Node-386.Node\28T\29-6195"*, %"LinkedList.Node-386.Node\28T\29-6195"** %4, align 8
-	store %"LinkedList.Node-386.Node\28T\29-6195"* %19, %"LinkedList.Node-386.Node\28T\29-6195"** %3
+	%19 = load %"LinkedList.Node-386.Node\28T\29-6193"*, %"LinkedList.Node-386.Node\28T\29-6193"** %4, align 8
+	store %"LinkedList.Node-386.Node\28T\29-6193"* %19, %"LinkedList.Node-386.Node\28T\29-6193"** %3
 	; AssignStmt
 	; SelectorExpr
-	%20 = load %"LinkedList.Node-386.Node\28T\29-6195"*, %"LinkedList.Node-386.Node\28T\29-6195"** %4, align 8
-	%21 = getelementptr inbounds %"LinkedList.Node-386.Node\28T\29-6195", %"LinkedList.Node-386.Node\28T\29-6195"* %20, i32 0, i32 1
-	%22 = load %"LinkedList.Node-386.Node\28T\29-6195"*, %"LinkedList.Node-386.Node\28T\29-6195"** %21, align 8
-	store %"LinkedList.Node-386.Node\28T\29-6195"* %22, %"LinkedList.Node-386.Node\28T\29-6195"** %4
+	%20 = load %"LinkedList.Node-386.Node\28T\29-6193"*, %"LinkedList.Node-386.Node\28T\29-6193"** %4, align 8
+	%21 = getelementptr inbounds %"LinkedList.Node-386.Node\28T\29-6193", %"LinkedList.Node-386.Node\28T\29-6193"* %20, i32 0, i32 1
+	%22 = load %"LinkedList.Node-386.Node\28T\29-6193"*, %"LinkedList.Node-386.Node\28T\29-6193"** %21, align 8
+	store %"LinkedList.Node-386.Node\28T\29-6193"* %22, %"LinkedList.Node-386.Node\28T\29-6193"** %4
 	; AssignStmt
 	%23 = load i64, i64* %5, align 8
 	%24 = add i64 %23, 1
@@ -26738,24 +26738,24 @@ if.done-4:
 for.done-5:
 	; AssignStmt
 	; SelectorExpr
-	%25 = load %"LinkedList.Node-386.Node\28T\29-6195"*, %"LinkedList.Node-386.Node\28T\29-6195"** %4, align 8
-	%26 = getelementptr inbounds %"LinkedList.Node-386.Node\28T\29-6195", %"LinkedList.Node-386.Node\28T\29-6195"* %25, i32 0, i32 1
+	%25 = load %"LinkedList.Node-386.Node\28T\29-6193"*, %"LinkedList.Node-386.Node\28T\29-6193"** %4, align 8
+	%26 = getelementptr inbounds %"LinkedList.Node-386.Node\28T\29-6193", %"LinkedList.Node-386.Node\28T\29-6193"* %25, i32 0, i32 1
 	; SelectorExpr
-	%27 = load %"LinkedList.Node-386.Node\28T\29-6195"*, %"LinkedList.Node-386.Node\28T\29-6195"** %3, align 8
-	%28 = getelementptr inbounds %"LinkedList.Node-386.Node\28T\29-6195", %"LinkedList.Node-386.Node\28T\29-6195"* %27, i32 0, i32 1
-	%29 = load %"LinkedList.Node-386.Node\28T\29-6195"*, %"LinkedList.Node-386.Node\28T\29-6195"** %28, align 8
-	store %"LinkedList.Node-386.Node\28T\29-6195"* %29, %"LinkedList.Node-386.Node\28T\29-6195"** %26
+	%27 = load %"LinkedList.Node-386.Node\28T\29-6193"*, %"LinkedList.Node-386.Node\28T\29-6193"** %3, align 8
+	%28 = getelementptr inbounds %"LinkedList.Node-386.Node\28T\29-6193", %"LinkedList.Node-386.Node\28T\29-6193"* %27, i32 0, i32 1
+	%29 = load %"LinkedList.Node-386.Node\28T\29-6193"*, %"LinkedList.Node-386.Node\28T\29-6193"** %28, align 8
+	store %"LinkedList.Node-386.Node\28T\29-6193"* %29, %"LinkedList.Node-386.Node\28T\29-6193"** %26
 	; AssignStmt
 	; SelectorExpr
-	%30 = load %"LinkedList.Node-386.Node\28T\29-6195"*, %"LinkedList.Node-386.Node\28T\29-6195"** %3, align 8
-	%31 = getelementptr inbounds %"LinkedList.Node-386.Node\28T\29-6195", %"LinkedList.Node-386.Node\28T\29-6195"* %30, i32 0, i32 1
-	%32 = load %"LinkedList.Node-386.Node\28T\29-6195"*, %"LinkedList.Node-386.Node\28T\29-6195"** %4, align 8
-	store %"LinkedList.Node-386.Node\28T\29-6195"* %32, %"LinkedList.Node-386.Node\28T\29-6195"** %31
+	%30 = load %"LinkedList.Node-386.Node\28T\29-6193"*, %"LinkedList.Node-386.Node\28T\29-6193"** %3, align 8
+	%31 = getelementptr inbounds %"LinkedList.Node-386.Node\28T\29-6193", %"LinkedList.Node-386.Node\28T\29-6193"* %30, i32 0, i32 1
+	%32 = load %"LinkedList.Node-386.Node\28T\29-6193"*, %"LinkedList.Node-386.Node\28T\29-6193"** %4, align 8
+	store %"LinkedList.Node-386.Node\28T\29-6193"* %32, %"LinkedList.Node-386.Node\28T\29-6193"** %31
 	; ReturnStmt
 	ret i64 0
 }
 
-define void @mem.make_slice-6892({i8*, i64}* sret noalias %agg.result, i64 %_.1, %mem.Allocator* %_.2, %runtime.Source_Code_Location* %_.3, %runtime.Context* noalias nonnull nocapture %__.context_ptr) #0 {
+define void @mem.make_slice-6890({i8*, i64}* sret noalias %agg.result, i64 %_.1, %mem.Allocator* %_.2, %runtime.Source_Code_Location* %_.3, %runtime.Context* noalias nonnull nocapture %__.context_ptr) #0 {
 decls-0:
 	%0 = alloca i64, align 16
 	%1 = alloca %..rawptr, align 16
@@ -26790,20 +26790,20 @@ decls-0:
 	ret void
 }
 
-define void @mem.make_dynamic_array-6946({%..rawptr*, i64, i64, %mem.Allocator}* sret noalias %agg.result, %mem.Allocator* %_.1, %runtime.Source_Code_Location* %_.2, %runtime.Context* noalias nonnull nocapture %__.context_ptr) #0 {
+define void @mem.make_dynamic_array-6944({%..rawptr*, i64, i64, %mem.Allocator}* sret noalias %agg.result, %mem.Allocator* %_.1, %runtime.Source_Code_Location* %_.2, %runtime.Context* noalias nonnull nocapture %__.context_ptr) #0 {
 decls-0:
 	%0 = alloca {%..rawptr*, i64, i64, %mem.Allocator}, align 16
 	; ReturnStmt
 	%1 = bitcast {%..rawptr*, i64, i64, %mem.Allocator}* %0 to %..rawptr
 	; ZeroInit
 	store {%..rawptr*, i64, i64, %mem.Allocator} zeroinitializer, {%..rawptr*, i64, i64, %mem.Allocator}* %0, align 1
-	call void @mem.make_dynamic_array_len_cap-9754({%..rawptr*, i64, i64, %mem.Allocator}* %0, i64 0, i64 16, %mem.Allocator* %_.1, %runtime.Source_Code_Location* %_.2, %runtime.Context* noalias nonnull nocapture %__.context_ptr)
+	call void @mem.make_dynamic_array_len_cap-9752({%..rawptr*, i64, i64, %mem.Allocator}* %0, i64 0, i64 16, %mem.Allocator* %_.1, %runtime.Source_Code_Location* %_.2, %runtime.Context* noalias nonnull nocapture %__.context_ptr)
 	%2 = load {%..rawptr*, i64, i64, %mem.Allocator}, {%..rawptr*, i64, i64, %mem.Allocator}* %0, align 8
 	store {%..rawptr*, i64, i64, %mem.Allocator} %2, {%..rawptr*, i64, i64, %mem.Allocator}* %agg.result
 	ret void
 }
 
-define void @runtime.append_elem-6989({%..rawptr*, i64, i64, %mem.Allocator}* %_.0, %..rawptr %_.1, %runtime.Source_Code_Location* %_.2, %runtime.Context* noalias nonnull nocapture %__.context_ptr) #0 {
+define void @runtime.append_elem-6987({%..rawptr*, i64, i64, %mem.Allocator}* %_.0, %..rawptr %_.1, %runtime.Source_Code_Location* %_.2, %runtime.Context* noalias nonnull nocapture %__.context_ptr) #0 {
 decls-0:
 	%0 = alloca {%..rawptr*, i64, i64, %mem.Allocator}*, align 16
 	%1 = alloca %..rawptr, align 16
@@ -26858,7 +26858,7 @@ if.then-3:
 	; AssignStmt
 	%31 = load {%..rawptr*, i64, i64, %mem.Allocator}*, {%..rawptr*, i64, i64, %mem.Allocator}** %0, align 8
 	%32 = load i64, i64* %3, align 8
-	%33 = call i8 @runtime.reserve_dynamic_array-9769({%..rawptr*, i64, i64, %mem.Allocator}* %31, i64 %32, %runtime.Source_Code_Location* %_.2, %runtime.Context* noalias nonnull nocapture %__.context_ptr)
+	%33 = call i8 @runtime.reserve_dynamic_array-9767({%..rawptr*, i64, i64, %mem.Allocator}* %31, i64 %32, %runtime.Source_Code_Location* %_.2, %runtime.Context* noalias nonnull nocapture %__.context_ptr)
 	br label %if.done-4
 
 if.done-4:
@@ -26910,7 +26910,7 @@ if.then-5:
 	%61 = load %mem.Raw_Dynamic_Array*, %mem.Raw_Dynamic_Array** %4, align 8
 	%62 = getelementptr inbounds %mem.Raw_Dynamic_Array, %mem.Raw_Dynamic_Array* %61, i32 0, i32 1
 	%63 = load i64, i64* %62, align 8
-	%64 = call %..rawptr* @mem.ptr_offset-9789(%..rawptr* %60, i64 %63)
+	%64 = call %..rawptr* @mem.ptr_offset-9787(%..rawptr* %60, i64 %63)
 	%65 = bitcast %..rawptr* %64 to %..rawptr
 	%66 = bitcast %..rawptr* %7 to %..rawptr
 	%67 = call %..rawptr @mem.copy(%..rawptr %65, %..rawptr %66, i64 8)
@@ -26928,7 +26928,7 @@ if.done-6:
 	ret void
 }
 
-define void @runtime.clear_dynamic_array-7015({%..rawptr*, i64, i64, %mem.Allocator}* %_.0) alwaysinline #1 {
+define void @runtime.clear_dynamic_array-7013({%..rawptr*, i64, i64, %mem.Allocator}* %_.0) alwaysinline #1 {
 decls-0:
 	%0 = alloca {%..rawptr*, i64, i64, %mem.Allocator}*, align 16
 	%1 = alloca %mem.Raw_Dynamic_Array*, align 16
@@ -26955,7 +26955,7 @@ if.done-2:
 	ret void
 }
 
-define i64 @runtime.copy-7724({i8*, i64}* %_.0, {i8*, i64}* %_.1) #0 {
+define i64 @runtime.copy-7722({i8*, i64}* %_.0, {i8*, i64}* %_.1) #0 {
 decls-0:
 	%0 = alloca i64, align 16
 	; n
@@ -27004,7 +27004,7 @@ if.done-2:
 	ret i64 %26
 }
 
-define i8 @runtime.reserve_dynamic_array-8250({i8*, i64, i64, %mem.Allocator}* %_.0, i64 %_.1, %runtime.Source_Code_Location* %_.2, %runtime.Context* noalias nonnull nocapture %__.context_ptr) #0 {
+define i8 @runtime.reserve_dynamic_array-8248({i8*, i64, i64, %mem.Allocator}* %_.0, i64 %_.1, %runtime.Source_Code_Location* %_.2, %runtime.Context* noalias nonnull nocapture %__.context_ptr) #0 {
 decls-0:
 	%0 = alloca {i8*, i64, i64, %mem.Allocator}*, align 16
 	%1 = alloca i64, align 16
@@ -27143,7 +27143,7 @@ if.done-8:
 	ret i8 1
 }
 
-define void @runtime.append_elem-8301({i8*, i64, i64, %mem.Allocator}* %_.0, i8 %_.1, %runtime.Source_Code_Location* %_.2, %runtime.Context* noalias nonnull nocapture %__.context_ptr) #0 {
+define void @runtime.append_elem-8299({i8*, i64, i64, %mem.Allocator}* %_.0, i8 %_.1, %runtime.Source_Code_Location* %_.2, %runtime.Context* noalias nonnull nocapture %__.context_ptr) #0 {
 decls-0:
 	%0 = alloca {i8*, i64, i64, %mem.Allocator}*, align 16
 	%1 = alloca i8, align 16
@@ -27198,7 +27198,7 @@ if.then-3:
 	; AssignStmt
 	%31 = load {i8*, i64, i64, %mem.Allocator}*, {i8*, i64, i64, %mem.Allocator}** %0, align 8
 	%32 = load i64, i64* %3, align 8
-	%33 = call i8 @runtime.reserve_dynamic_array-8250({i8*, i64, i64, %mem.Allocator}* %31, i64 %32, %runtime.Source_Code_Location* %_.2, %runtime.Context* noalias nonnull nocapture %__.context_ptr)
+	%33 = call i8 @runtime.reserve_dynamic_array-8248({i8*, i64, i64, %mem.Allocator}* %31, i64 %32, %runtime.Source_Code_Location* %_.2, %runtime.Context* noalias nonnull nocapture %__.context_ptr)
 	br label %if.done-4
 
 if.done-4:
@@ -27250,7 +27250,7 @@ if.then-5:
 	%61 = load %mem.Raw_Dynamic_Array*, %mem.Raw_Dynamic_Array** %4, align 8
 	%62 = getelementptr inbounds %mem.Raw_Dynamic_Array, %mem.Raw_Dynamic_Array* %61, i32 0, i32 1
 	%63 = load i64, i64* %62, align 8
-	%64 = call i8* @mem.ptr_offset-5851(i8* %60, i64 %63)
+	%64 = call i8* @mem.ptr_offset-5849(i8* %60, i64 %63)
 	%65 = bitcast i8* %64 to %..rawptr
 	%66 = bitcast i8* %7 to %..rawptr
 	%67 = call %..rawptr @mem.copy(%..rawptr %65, %..rawptr %66, i64 1)
@@ -27268,7 +27268,7 @@ if.done-6:
 	ret void
 }
 
-define void @runtime.append_elems-8312({i8*, i64, i64, %mem.Allocator}* %_.0, {i8*, i64}* %_.1, %runtime.Source_Code_Location* %_.2, %runtime.Context* noalias nonnull nocapture %__.context_ptr) #0 {
+define void @runtime.append_elems-8310({i8*, i64, i64, %mem.Allocator}* %_.0, {i8*, i64}* %_.1, %runtime.Source_Code_Location* %_.2, %runtime.Context* noalias nonnull nocapture %__.context_ptr) #0 {
 decls-0:
 	%0 = alloca {i8*, i64, i64, %mem.Allocator}*, align 16
 	%1 = alloca i64, align 16
@@ -27334,7 +27334,7 @@ if.then-5:
 	; AssignStmt
 	%35 = load {i8*, i64, i64, %mem.Allocator}*, {i8*, i64, i64, %mem.Allocator}** %0, align 8
 	%36 = load i64, i64* %2, align 8
-	%37 = call i8 @runtime.reserve_dynamic_array-8250({i8*, i64, i64, %mem.Allocator}* %35, i64 %36, %runtime.Source_Code_Location* %_.2, %runtime.Context* noalias nonnull nocapture %__.context_ptr)
+	%37 = call i8 @runtime.reserve_dynamic_array-8248({i8*, i64, i64, %mem.Allocator}* %35, i64 %36, %runtime.Source_Code_Location* %_.2, %runtime.Context* noalias nonnull nocapture %__.context_ptr)
 	br label %if.done-6
 
 if.done-6:
@@ -27383,7 +27383,7 @@ if.then-7:
 	%64 = load %mem.Raw_Dynamic_Array*, %mem.Raw_Dynamic_Array** %3, align 8
 	%65 = getelementptr inbounds %mem.Raw_Dynamic_Array, %mem.Raw_Dynamic_Array* %64, i32 0, i32 1
 	%66 = load i64, i64* %65, align 8
-	%67 = call i8* @mem.ptr_offset-5851(i8* %63, i64 %66)
+	%67 = call i8* @mem.ptr_offset-5849(i8* %63, i64 %66)
 	; IndexExpr
 	%68 = load {i8*, i64}, {i8*, i64}* %_.1, align 8
 	%69 = extractvalue {i8*, i64} %68, 0
@@ -27409,34 +27409,34 @@ if.done-8:
 	ret void
 }
 
-define %"LinkedList.Node-386.Node\28T\29-6195"* @mem.new-9574(%mem.Allocator* %_.1, %runtime.Source_Code_Location* %_.2, %runtime.Context* noalias nonnull nocapture %__.context_ptr) alwaysinline #1 {
+define %"LinkedList.Node-386.Node\28T\29-6193"* @mem.new-9572(%mem.Allocator* %_.1, %runtime.Source_Code_Location* %_.2, %runtime.Context* noalias nonnull nocapture %__.context_ptr) alwaysinline #1 {
 decls-0:
-	%0 = alloca %"LinkedList.Node-386.Node\28T\29-6195"*, align 16
+	%0 = alloca %"LinkedList.Node-386.Node\28T\29-6193"*, align 16
 	; ptr
 	%1 = call %..rawptr @mem.alloc(i64 16, i64 8, %mem.Allocator* %_.1, %runtime.Source_Code_Location* %_.2, %runtime.Context* noalias nonnull nocapture %__.context_ptr) alwaysinline
-	%2 = bitcast %..rawptr %1 to %"LinkedList.Node-386.Node\28T\29-6195"*
-	store %"LinkedList.Node-386.Node\28T\29-6195"* %2, %"LinkedList.Node-386.Node\28T\29-6195"** %0
+	%2 = bitcast %..rawptr %1 to %"LinkedList.Node-386.Node\28T\29-6193"*
+	store %"LinkedList.Node-386.Node\28T\29-6193"* %2, %"LinkedList.Node-386.Node\28T\29-6193"** %0
 	; IfStmt
-	%3 = load %"LinkedList.Node-386.Node\28T\29-6195"*, %"LinkedList.Node-386.Node\28T\29-6195"** %0, align 8
-	%4 = icmp ne %"LinkedList.Node-386.Node\28T\29-6195"* %3, zeroinitializer
+	%3 = load %"LinkedList.Node-386.Node\28T\29-6193"*, %"LinkedList.Node-386.Node\28T\29-6193"** %0, align 8
+	%4 = icmp ne %"LinkedList.Node-386.Node\28T\29-6193"* %3, zeroinitializer
 	%5 = zext i1 %4 to i8
 	%6 = trunc i8 %5 to i1
 	br i1 %6, label %if.then-1, label %if.done-2
 
 if.then-1:
 	; AssignStmt
-	%7 = load %"LinkedList.Node-386.Node\28T\29-6195"*, %"LinkedList.Node-386.Node\28T\29-6195"** %0, align 8
-	%8 = getelementptr inbounds %"LinkedList.Node-386.Node\28T\29-6195", %"LinkedList.Node-386.Node\28T\29-6195"* %7, i64 0
-	store %"LinkedList.Node-386.Node\28T\29-6195" zeroinitializer, %"LinkedList.Node-386.Node\28T\29-6195"* %8
+	%7 = load %"LinkedList.Node-386.Node\28T\29-6193"*, %"LinkedList.Node-386.Node\28T\29-6193"** %0, align 8
+	%8 = getelementptr inbounds %"LinkedList.Node-386.Node\28T\29-6193", %"LinkedList.Node-386.Node\28T\29-6193"* %7, i64 0
+	store %"LinkedList.Node-386.Node\28T\29-6193" zeroinitializer, %"LinkedList.Node-386.Node\28T\29-6193"* %8
 	br label %if.done-2
 
 if.done-2:
 	; ReturnStmt
-	%9 = load %"LinkedList.Node-386.Node\28T\29-6195"*, %"LinkedList.Node-386.Node\28T\29-6195"** %0, align 8
-	ret %"LinkedList.Node-386.Node\28T\29-6195"* %9
+	%9 = load %"LinkedList.Node-386.Node\28T\29-6193"*, %"LinkedList.Node-386.Node\28T\29-6193"** %0, align 8
+	ret %"LinkedList.Node-386.Node\28T\29-6193"* %9
 }
 
-define void @mem.make_dynamic_array_len_cap-9754({%..rawptr*, i64, i64, %mem.Allocator}* sret noalias %agg.result, i64 %_.1, i64 %_.2, %mem.Allocator* %_.3, %runtime.Source_Code_Location* %_.4, %runtime.Context* noalias nonnull nocapture %__.context_ptr) #0 {
+define void @mem.make_dynamic_array_len_cap-9752({%..rawptr*, i64, i64, %mem.Allocator}* sret noalias %agg.result, i64 %_.1, i64 %_.2, %mem.Allocator* %_.3, %runtime.Source_Code_Location* %_.4, %runtime.Context* noalias nonnull nocapture %__.context_ptr) #0 {
 decls-0:
 	%0 = alloca i64, align 16
 	%1 = alloca i64, align 16
@@ -27481,7 +27481,7 @@ decls-0:
 	ret void
 }
 
-define i8 @runtime.reserve_dynamic_array-9769({%..rawptr*, i64, i64, %mem.Allocator}* %_.0, i64 %_.1, %runtime.Source_Code_Location* %_.2, %runtime.Context* noalias nonnull nocapture %__.context_ptr) #0 {
+define i8 @runtime.reserve_dynamic_array-9767({%..rawptr*, i64, i64, %mem.Allocator}* %_.0, i64 %_.1, %runtime.Source_Code_Location* %_.2, %runtime.Context* noalias nonnull nocapture %__.context_ptr) #0 {
 decls-0:
 	%0 = alloca {%..rawptr*, i64, i64, %mem.Allocator}*, align 16
 	%1 = alloca i64, align 16
@@ -27620,7 +27620,7 @@ if.done-8:
 	ret i8 1
 }
 
-define %..rawptr* @mem.ptr_offset-9789(%..rawptr* %_.0, i64 %_.1) alwaysinline #1 {
+define %..rawptr* @mem.ptr_offset-9787(%..rawptr* %_.0, i64 %_.1) alwaysinline #1 {
 decls-0:
 	%0 = alloca %..rawptr*, align 16
 	%1 = alloca i64, align 16

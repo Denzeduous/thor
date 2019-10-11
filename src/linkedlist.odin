@@ -33,7 +33,7 @@ insert :: proc(list: ^LinkedList($T), value: ^$K) {
     list.last.next = newnode;
 }
 
-insertAt :: proc (list: ^LinkedList($T), value: $K, index: int) -> LinkedListError {
+insertAt :: proc (list: ^LinkedList($T), value: T, index: int) -> LinkedListError {
     list := list;
     previous: ^Node(T) = nil;
     node: ^Node(T) = list.first;
@@ -89,7 +89,7 @@ removeAt :: proc(list: ^LinkedList($T), index: int) -> LinkedListError {
     return .NOERR;
 }
 
-get :: proc(list: ^LinkedList($T), index: int) -> (^Node($K), LinkedListError) {
+get :: proc(list: ^LinkedList($T), index: int) -> (^Node(T), LinkedListError) {
     list := list;
     node: ^Node(T) = list.first;
 
