@@ -1,5 +1,7 @@
 package LinkedList;
 
+import "core:fmt"
+
 Node :: struct {
     value: rawptr,
     next: ^Node,
