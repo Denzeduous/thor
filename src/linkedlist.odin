@@ -134,25 +134,13 @@ get :: proc(list: ^LinkedList($T), index: int) -> (^Node(T), LinkedListError) {
 main :: proc() {
     list := new(LinkedList(int));
 
-    value := new(int);
-    value^ = 1;
-    insert(list, value);
+    value: ^int;
 
-    value = new(int);
-    value^ = 1;
-    insert(list, value);
-
-    value = new(int);
-    value^ = 1;
-    insert(list, value);
-
-    value = new(int);
-    value^ = 1;
-    insert(list, value);
-
-    value = new(int);
-    value^ = 1;
-    insert(list, value);
+    for i := 1; i <= 5; i += 1 {
+        value = new(int);
+        value^ = i;
+        insert(list, value);
+    }
 
     fmt.print('[');
 
