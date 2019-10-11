@@ -2,8 +2,11 @@ package LinkedList;
 
 import "core:fmt"
 
+/*
+ * Node class. Contains a pointer to the value and a pointer to the next node.
+ */
 Node :: struct(T: typeid) {
-    value: ^T,
+    value: T,
     next: ^Node(T),
 }
 
@@ -19,7 +22,7 @@ LinkedListError :: enum {
     EMPTY_LIST,
 }
 
-insert :: proc(list: ^LinkedList($T), value: ^T) {
+insert :: proc(list: ^LinkedList($T), value: T) {
     list, value := list, value;
 
     node := new(Node(T));
@@ -149,11 +152,10 @@ get :: proc(list: ^LinkedList($T), index: int) -> (^Node(T), LinkedListError) {
 main :: proc() {
     list := new(LinkedList(int));
 
-    value: ^int;
+    value: int;
 
     for i := 1; i <= 5; i += 1 {
-        value = new(int);
-        value^ = i;
+        value = i;
         insert(list, value);
     }
 
@@ -175,7 +177,7 @@ main :: proc() {
 
     for i := 0; i < 4; i += 1 {
         node, _ := get(list, i);
-        fmt.print(node.value^);
+        fmt.print(node.value);
 
         if (i != 3) {
             fmt.print(", ");
